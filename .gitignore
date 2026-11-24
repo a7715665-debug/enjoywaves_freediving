@@ -1,0 +1,9 @@
+.DS_Store
+# 原始照片不上傳（網站只用處理過的版本）
+images/**/DSC*
+images/**/_DSC*
+images/**/IMG_*
+*.HEIC
+*.heic
+# 沒用到的字體
+fonts/
