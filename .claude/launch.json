@@ -4,7 +4,7 @@
     {
       "name": "site",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "/Users/enjoywaves/Documents/GitHub/enjoywaves_freediving"],
+      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "/Users/enjoywaves/GitHub/enjoywaves_freediving"],
       "port": 8765
     }
   ]
