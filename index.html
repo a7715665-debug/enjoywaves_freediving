@@ -53,11 +53,13 @@
   .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
   .logo{font-weight:800;font-size:1.15rem;letter-spacing:.03em}
   .logo span{color:var(--accent)}
-  .nav ul{display:flex;gap:22px;list-style:none;font-size:.95rem}
+  .nav{gap:20px;max-width:1240px}
+  .logo,.nav ul a,.nav .btn{white-space:nowrap}
+  .nav ul{display:flex;gap:16px;list-style:none;font-size:.9rem}
   .nav ul a:hover{color:var(--accent)}
   .nav .btn{padding:8px 18px;font-size:.9rem}
   .burger{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
-  @media(max-width:900px){
+  @media(max-width:1180px){
     .nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--abyss);flex-direction:column;padding:16px 20px;gap:14px}
     .nav ul.open{display:flex}
     .burger{display:block}
@@ -65,7 +67,7 @@
   }
 
   /* Hero */
-  .hero{background:linear-gradient(180deg,rgba(27,43,54,.62) 0%,rgba(27,43,54,.38) 45%,rgba(27,43,54,.72) 100%),url("images/hero/hero.jpg") center 60%/cover no-repeat,var(--ocean);color:#fff;padding:120px 0 100px;position:relative;overflow:hidden}
+  .hero{background:linear-gradient(180deg,rgba(27,43,54,.62) 0%,rgba(27,43,54,.38) 45%,rgba(27,43,54,.72) 100%),url("images/hero/hero-photo.jpg") center 50%/cover no-repeat,url("images/hero/hero.jpg") center 60%/cover no-repeat,var(--ocean);color:#fff;padding:120px 0 100px;position:relative;overflow:hidden}
   .hero::before{content:none}
   .hero .wrap{position:relative}
   .hero h1{font-size:clamp(2rem,5.5vw,3.4rem);line-height:1.25;margin:10px 0 18px;max-width:620px}
@@ -186,10 +188,20 @@
   .gift b{color:var(--accent-dark)}
   .gift span{color:var(--ocean);font-weight:700;font-size:1.05rem}
   .hero h1,.hero p,.hero-stats{text-shadow:0 2px 12px rgba(10,25,35,.35)}
-  @media(max-width:600px){.hero{padding:96px 0 72px;background-position:center,58% 60%}}
+  @media(max-width:600px){.hero{padding:96px 0 72px;background-position:center,center 50%,58% 60%}}
   img.photo{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);display:block}
   /* 水攝作品：直式 4:5；手機改成左右滑動 */
-  .works{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+  .works{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+  @media(min-width:701px){.works>:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;height:100%}}
+  .work-ph{background:#ffffff12;display:flex;align-items:center;justify-content:center;color:#C5D6E0;font-size:.85rem}
+  .perks{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .perks span{padding:6px 14px;border-radius:999px;background:#D9C4A51f;border:1px solid #D9C4A566;color:#F1E6D6;font-size:.9rem;font-weight:700}
+  .pflow{list-style:none;counter-reset:pf;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px;padding:0}
+  .pflow li{counter-increment:pf;display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:var(--radius);background:#ffffff0d;border:1px solid #ffffff1f}
+  .pflow li::before{content:counter(pf);width:28px;height:28px;border-radius:50%;background:#D9C4A5;color:var(--abyss);font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+  .pflow b{color:#fff}
+  .pflow span{color:#C5D6E0;font-size:.9rem}
+  @media(max-width:700px){.pflow{grid-template-columns:1fr}}
   .works .work,.works img{aspect-ratio:4/5;width:100%;height:auto;object-fit:cover;border-radius:var(--radius);display:block}
   @media(max-width:700px){
     .works{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px;margin-right:-20px;padding-right:20px;-webkit-overflow-scrolling:touch}
@@ -203,6 +215,11 @@
     .works-dots button.on{width:22px;background:#D9C4A5}
   }
   .coach-name{color:#D9C4A5;font-size:1.3rem;margin:4px 0 10px}
+  .roles{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+  .roles span{font-size:.8rem;font-weight:700;padding:3px 12px;border-radius:999px;border:1px solid #D9C4A5;color:#D9C4A5}
+  .coach-alt{margin-top:56px}
+  @media(min-width:801px){.coach-alt>.photo{order:2}}
+  .photo-ph{aspect-ratio:4/3;border-radius:var(--radius);background:#ffffff12;display:flex;align-items:center;justify-content:center;color:#C5D6E0}
   /* 新手從這裡開始 */
   .start-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:32px}
   @media(max-width:760px){.start-grid{grid-template-columns:1fr}}
@@ -220,6 +237,14 @@
   .next-step span{font-size:.8rem;letter-spacing:.15em;color:#D9C4A5;font-weight:700}
   .next-step em{font-style:normal;color:#D9C4A5;font-weight:700}
   .promo-hint{font-size:.85rem;color:var(--accent-dark);text-align:center;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+  /* 預約制說明 */
+  .booking{background:#fff;border:1px solid var(--line);border-left:5px solid var(--tide);border-radius:var(--radius);padding:28px;display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center}
+  .booking h2{margin-top:4px}
+  .booking .btn{grid-column:1/-1;justify-self:start}
+  .booking-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .booking-list li{background:var(--mist);border-radius:10px;padding:12px 16px;font-size:.95rem;color:var(--ink)}
+  .booking-list b{color:var(--ocean)}
+  @media(max-width:760px){.booking{grid-template-columns:1fr}.booking .btn{justify-self:stretch;text-align:center}}
 </style>
 </head>
 <body>
@@ -231,12 +256,12 @@
     <button class="burger" aria-label="選單" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
     <ul id="menu" onclick="if(event.target.tagName==='A')this.classList.remove('open')">
       <li><a href="#start">新手入門</a></li>
+      <li><a href="#photo">水下攝影</a></li>
       <li><a href="#promo">淡季活動</a></li>
       <li><a href="#news">最新消息</a></li>
       <li><a href="#courses">AIDA 課程</a></li>
       <li><a href="#experience">體驗・訓練</a></li>
       <li><a href="#guide">小琉球導潛</a></li>
-      <li><a href="#photo">水下攝影</a></li>
       <li><a href="#rental">裝備租借</a></li>
       <li><a href="#hostel">背包房</a></li>
       <li><a href="#faq">常見問題</a></li>
@@ -252,8 +277,9 @@
     <h1>在小琉球，<br>一口氣遇見<em>海龜</em>與自己</h1>
     <p class="calli">只要有心，誰都可以學會自由潛水！<br>我帶過許多怕水、不會游泳的學生，<br>看著他們從最初的狀態，到能獨立出海下潛，<br>這正是我教學的動力來源。</p>
     <div class="actions">
-      <a href="#schedule" class="btn btn-primary">查看開課日期</a>
-      <a href="#contact" class="btn btn-ghost">LINE 諮詢</a>
+      <a href="#start" class="btn btn-primary">預約自由潛水體驗</a>
+      <a href="#photo" class="btn btn-ghost">預約水下攝影</a>
+      <a href="https://line.me/R/ti/p/@598btgtq" target="_blank" rel="noopener" class="btn btn-ghost">LINE 諮詢</a>
     </div>
     <div class="hero-stats">
       <div><b>300+</b>培訓學員</div>
@@ -279,7 +305,7 @@
           <li>含裝備：面鏡、蛙鞋、呼吸管、浮球</li>
           <li>GoPro 幫你拍照錄影</li>
         </ul>
-        <a href="https://line.me/ti/p/~0952236777" target="_blank" rel="noopener" class="btn btn-primary">LINE 預約體驗</a>
+        <a href="https://line.me/R/ti/p/@598btgtq" target="_blank" rel="noopener" class="btn btn-primary">LINE 預約體驗</a>
         <a href="#promo" class="promo-hint">🔥 淡季活動期間另有優惠，往下看 ↓</a>
         <div class="upgrade">
           <span class="arrow">↓</span>
@@ -296,7 +322,7 @@
           <li>無需考核，輕鬆認識自由潛水</li>
           <li>含一晚住宿、機車、船票</li>
         </ul>
-        <a href="https://line.me/ti/p/~0952236777" target="_blank" rel="noopener" class="btn btn-primary">LINE 預約 AIDA 1</a>
+        <a href="https://line.me/R/ti/p/@598btgtq" target="_blank" rel="noopener" class="btn btn-primary">LINE 預約 AIDA 1</a>
         <a href="#promo" class="promo-hint">🔥 淡季活動期間另有優惠，往下看 ↓</a>
         <div class="upgrade">
           <span class="arrow">↓</span>
@@ -375,8 +401,8 @@
 
     <p class="promo-solo">單項加購價：機車 NT$400・船票 NT$450・背包房 NT$800・海景房 NT$3,200・訓練潛 NT$1,200・導潛 NT$1,000</p>
     <div class="promo-cta">
-      <span>報名請洽 手機／LINE ID：<b>0952236777</b></span>
-      <a href="https://line.me/ti/p/~0952236777" target="_blank" rel="noopener" class="btn btn-primary">LINE 立即報名</a>
+      <span>報名請洽 LINE 官方帳號：<b>@598btgtq</b>｜手機：<b>0952-236-777</b></span>
+      <a href="https://line.me/R/ti/p/@598btgtq" target="_blank" rel="noopener" class="btn btn-primary">LINE 立即報名</a>
     </div>
   </div>
 </section>
@@ -388,14 +414,13 @@
       <div>
         <div class="eyebrow">News</div>
         <h2>最新消息</h2>
-        <p class="lead">開課招生、活動與公告都會在這裡更新。</p>
+        <p class="lead">課程優惠、活動與公告都會在這裡更新。</p>
       </div>
-      <a href="https://www.instagram.com/enjoywaves_freediving/" target="_blank" rel="noopener" class="btn btn-outline">追蹤 IG 看最新開課</a>
+      <a href="https://www.instagram.com/enjoywaves_freediving/" target="_blank" rel="noopener" class="btn btn-outline">追蹤 IG 看最新動態</a>
     </div>
     <div class="grid g3">
       <article class="card">
-        <span class="tag">招生中</span>
-        <div class="meta todo">2026.○○.○○</div>
+        <span class="tag">隨時預約</span>
         <h3>AIDA 2 通通全包 NT$15,000</h3>
         <p class="meta">三天兩夜課程、住宿、機車、船票、全套裝備一次包辦，再加一年免費練習保障。</p>
         <a href="#courses" class="meta" style="text-decoration:underline">看課程內容</a>
@@ -407,30 +432,25 @@
         <p class="meta">體驗 NT$2,500、AIDA 1 早鳥 NT$6,000、2 天 1 夜訓練潛 NT$2,800，全都含機車、住宿、船票。</p>
         <a href="#promo" class="meta" style="text-decoration:underline">看活動內容</a>
       </article>
-      <article class="card todo">
-        <span class="tag">公告</span>
-        <div class="meta">2026.○○.○○</div>
-        <h3>冬季營業時間／海況停課說明</h3>
-        <p class="meta">公告內容…</p>
-      </article>
     </div>
   </div>
 </section>
 
-<!-- ========== 4. 開課日程 ========== -->
-<section id="schedule" style="padding-top:0">
+<!-- ========== 4. 預約制說明 ========== -->
+<section id="booking" style="padding-top:0">
   <div class="wrap">
-    <div class="eyebrow">Schedule</div>
-    <h2>近期開課日程</h2>
-    <div class="table-scroll">
-      <table class="todo">
-        <thead><tr><th>日期</th><th>課程</th><th>地點</th><th>名額</th><th>狀態</th></tr></thead>
-        <tbody>
-          <tr><td>○/○ – ○/○</td><td>AIDA 1</td><td>小琉球</td><td>○ / ○</td><td class="status">招生中</td></tr>
-          <tr><td>○/○ – ○/○</td><td>AIDA 2</td><td>小琉球</td><td>○ / ○</td><td class="status">剩 ○ 位</td></tr>
-          <tr><td>○/○ – ○/○</td><td>AIDA 3</td><td>小琉球</td><td>○ / ○</td><td>額滿</td></tr>
-        </tbody>
-      </table>
+    <div class="booking">
+      <div>
+        <div class="eyebrow">By Appointment</div>
+        <h2>全預約制，日期由你決定</h2>
+        <p class="lead">沒有固定開課時間，課程、體驗、導潛都可以依你的行程預約，一個人也能報名。</p>
+      </div>
+      <ul class="booking-list">
+        <li><b>先用 LINE 告訴我</b>想參加的方案、日期和人數</li>
+        <li><b>建議提早預約</b>：假日和暑假比較熱門；提早兩週報名還能享早鳥優惠</li>
+        <li><b>依海況安排</b>：遇到天候或海況不佳，會協助改期</li>
+      </ul>
+      <a href="https://line.me/R/ti/p/@598btgtq" target="_blank" rel="noopener" class="btn btn-primary">LINE 預約日期</a>
     </div>
   </div>
 </section>
@@ -469,7 +489,7 @@
       </div>
       <div class="promise">
         <h4>一年練習保障</h4>
-        <p>自由潛水需要不斷練習，三天沒有過課也不用氣餒。結訓後一年內，即使沒有開課，只要提前兩週預約住宿，我們免費帶你下水練習（一天一次）。一年內持續回來跟課練習，保障期限會重新計算。</p>
+        <p>自由潛水需要不斷練習，三天沒有過課也不用氣餒。結訓後一年內，即使當時沒有課程，只要提前兩週預約住宿，我們免費帶你下水練習（一天一次）。一年內持續回來跟課練習，保障期限會重新計算。</p>
       </div>
       <div class="notes">
         <h4>報名前請先確認健康狀況</h4>
@@ -580,8 +600,9 @@
 <section id="photo" class="band">
   <div class="wrap">
     <div class="eyebrow">Underwater Photo</div>
-    <h2>體驗自由潛水＋水下攝影</h2>
-    <p class="lead">先帶你熟悉自由潛水，再用水下單眼相機幫你留下美照。沒拍過水下照也沒關係，我們會一步步指導動作。</p>
+    <h2>水下攝影</h2>
+    <p class="lead">用水下單眼相機幫你在小琉球的海裡留下美照。沒拍過水下照也沒關係，我會一步步指導動作。</p>
+    <div class="perks"><span>教練親自掌鏡，安全又安心</span><span>現場指導姿勢，沒拍過也 OK</span><span>一潛約 2 小時・5 張精修</span></div>
     <div class="works">
       <img src="images/photo/work-1.jpg" alt="Enjoy Waves 水下攝影作品 1" loading="lazy" width="1080" height="1350">
       <img src="images/photo/work-2.jpg" alt="Enjoy Waves 水下攝影作品 2" loading="lazy" width="1080" height="1350">
@@ -589,20 +610,27 @@
       <img src="images/photo/work-4.jpg" alt="Enjoy Waves 水下攝影作品 4" loading="lazy" width="1080" height="1350">
       <img src="images/photo/work-5.jpg" alt="Enjoy Waves 水下攝影作品 5" loading="lazy" width="1080" height="1350">
       <img src="images/photo/work-6.jpg" alt="Enjoy Waves 水下攝影作品 6" loading="lazy" width="1080" height="1350">
+      <div class="work work-ph todo">work-7.jpg</div>
+      <div class="work work-ph todo">work-8.jpg</div>
+      <div class="work work-ph todo">work-9.jpg</div>
     </div>
     <div class="works-dots" aria-hidden="true"></div>
     <p style="margin-top:18px"><a href="https://www.instagram.com/enjoy__waves/" target="_blank" rel="noopener" class="btn btn-ghost">在 Instagram 看更多作品 @enjoy__waves</a></p>
+    <ol class="pflow">
+      <li><b>LINE 預約</b><span>告訴我日期與人數，付訂金 NT$1,500</span></li>
+      <li><b>下水拍攝</b><span>一潛約 2 小時，現場指導動作</span></li>
+      <li><b>雲端交件</b><span>精修照片上傳雲端相簿，一週內下載</span></li>
+    </ol>
     <div class="grid g2" style="margin-top:22px">
       <div class="card">
         <h3>方案內容</h3>
         <ul class="list">
           <li>時間：一潛，約 2 小時</li>
-          <li>含裝備：面鏡、蛙鞋、呼吸管、浮球</li>
           <li>水下單眼相機拍攝，現場指導姿勢</li>
           <li>提供 5 張精修照片，加購每張 NT$200</li>
         </ul>
-        <div class="price">NT$ 5,500 / 人</div>
-        <p class="meta">訂金 NT$500</p>
+        <div class="price">NT$ 4,000 / 人</div>
+        <p class="meta">訂金 NT$1,500</p>
       </div>
       <div class="card">
         <h3>拍攝與交件</h3>
@@ -620,7 +648,7 @@
   <div class="wrap">
     <div class="eyebrow">Rental</div>
     <h2>裝備租借</h2>
-    <p class="lead">AIDA 2 課程、自由潛水體驗、水下攝影方案都已含裝備，不需另外租借。</p>
+    <p class="lead">AIDA 2 課程和自由潛水體驗都已含裝備，不需另外租借。</p>
     <div class="table-scroll">
       <table>
         <thead><tr><th>品項</th><th>說明</th><th>每日租金</th></tr></thead>
@@ -669,34 +697,29 @@
       <div class="eyebrow">Your Instructor</div>
       <h2>關於教練</h2>
       <h3 class="coach-name">熱狗教練</h3>
+      <div class="roles"><span>AIDA 教練</span><span>水下攝影師</span></div>
       <p class="lead">在小琉球生活 8 年、教學 6 年，對這片海域再熟悉不過。<br>這座小島是學自由潛水的理想場所：島小、上下岸方便，初學者能輕鬆入門；想進階，也有足夠的深度可以挑戰。一年四季都能下水，什麼時候來都是開始的好時機。</p>
     </div>
   </div>
-</section>
-
-<!-- ========== 12. 學員心得 ========== -->
-<section id="reviews">
-  <div class="wrap">
-    <div class="eyebrow">Reviews</div>
-    <h2>學員心得</h2>
-    <p class="lead">放真實學員的評價或 Google 評論連結。</p>
-    <div class="grid g3">
-      <div class="card todo"><p>「學員心得內容…」</p><div class="meta">— 學員名字／課程</div></div>
-      <div class="card todo"><p>「學員心得內容…」</p><div class="meta">— 學員名字／課程</div></div>
-      <div class="card todo"><p>「學員心得內容…」</p><div class="meta">— 學員名字／課程</div></div>
+  <div class="wrap split coach-alt">
+    <div class="photo photo-ph todo">Grace 照片</div>
+    <div>
+      <h3 class="coach-name">Grace</h3>
+      <div class="roles"><span>助教</span><span>活動企劃</span><span>學員服務</span><span>水下模特兒</span></div>
+      <p class="lead">喜愛大海，擅長與人溝通與規劃行程。課程中常扮演安撫學生情緒的角色，在團隊中更是協調者與照顧者，讓學生們安心潛水。</p>
     </div>
   </div>
 </section>
 
 <!-- ========== 13. 報名流程 ========== -->
-<section id="process" style="padding-top:0">
+<section id="process">
   <div class="wrap">
     <div class="eyebrow">How to Join</div>
     <h2>報名流程</h2>
     <div class="steps">
-      <div class="step"><h3>LINE 諮詢</h3><p class="meta">確認日期與名額</p></div>
+      <div class="step"><h3>LINE 預約</h3><p class="meta">告訴我日期、人數與方案</p></div>
       <div class="step"><h3>健康確認</h3><p class="meta">告知病史與身體狀況</p></div>
-      <div class="step"><h3>匯訂金</h3><p class="meta">完成後保留名額</p></div>
+      <div class="step"><h3>匯訂金</h3><p class="meta">完成後保留預約</p></div>
       <div class="step"><h3>付清尾款</h3><p class="meta">上課前付清即可</p></div>
     </div>
     <div class="grid g2" style="margin-top:28px">
@@ -713,7 +736,7 @@
             <tr><td>AIDA 2 全包</td><td>NT$4,000（或一次付清 NT$15,000）</td></tr>
             <tr><td>自由潛水體驗</td><td>NT$1,000／人</td></tr>
             <tr><td>小琉球導潛</td><td>NT$400／人</td></tr>
-            <tr><td>體驗＋水下攝影</td><td>NT$500</td></tr>
+            <tr><td>水下攝影</td><td>NT$1,500／人</td></tr>
           </tbody>
         </table>
       </div>
@@ -739,8 +762,8 @@
 <section class="cta" id="contact">
   <div class="wrap">
     <h2>準備好下潛了嗎？</h2>
-    <p style="margin:8px 0 24px;opacity:.95">加入 LINE 詢問開課日期與名額</p>
-    <a href="#" class="btn todo">加入 LINE 官方帳號</a>
+    <p style="margin:8px 0 24px;opacity:.95">全預約制，加入 LINE 告訴我你想來的日期</p>
+    <a href="https://line.me/R/ti/p/@598btgtq" target="_blank" rel="noopener" class="btn">加入 LINE 官方帳號</a>
     <a href="https://maps.app.goo.gl/fMzruzoV4UY9EzGt9" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-left:8px">Google 地圖導航</a>
   </div>
 </section>
@@ -751,9 +774,9 @@
     <div class="cols">
       <div>
         <h4>ENJOY WAVES FREEDIVING</h4>
-        <p class="todo">地址：屏東縣琉球鄉○○路○○號</p>
-        <p class="todo">電話：09○○-○○○-○○○</p>
-        <p class="todo">營業時間：○○:○○–○○:○○</p>
+        <p>地址：屏東縣琉球鄉忠孝路一巷2-11號</p>
+        <p>電話：<a href="tel:0952236777">0952-236-777</a></p>
+        <p>營業時間：全預約制</p>
       </div>
       <div>
         <h4>服務項目</h4>
@@ -766,7 +789,7 @@
         <h4>追蹤我們</h4>
         <p><a href="https://www.instagram.com/enjoywaves_freediving/" target="_blank" rel="noopener" class="ig">Instagram 課程　@enjoywaves_freediving</a></p>
         <p><a href="https://www.instagram.com/enjoy__waves/" target="_blank" rel="noopener" class="ig">Instagram 水攝　@enjoy__waves</a></p>
-        <p class="todo">LINE・Facebook</p>
+        <p><a href="https://line.me/R/ti/p/@598btgtq" target="_blank" rel="noopener" class="ig">LINE 官方帳號　@598btgtq</a></p>
       </div>
       <a class="map" href="https://maps.app.goo.gl/fMzruzoV4UY9EzGt9" target="_blank" rel="noopener">
         <span class="pin">📍</span>
@@ -778,7 +801,7 @@
   </div>
 </footer>
 
-<a href="#contact" class="float-line">LINE 諮詢</a>
+<a href="https://line.me/R/ti/p/@598btgtq" target="_blank" rel="noopener" class="float-line">LINE 諮詢</a>
 <script>
 function copyAcct(b){var t='28881003772529';
   try{navigator.clipboard.writeText(t).then(function(){b.textContent='已複製';setTimeout(function(){b.textContent='複製帳號'},1500)},function(){b.textContent=t})}catch(e){b.textContent=t}}
